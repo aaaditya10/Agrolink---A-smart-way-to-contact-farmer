@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AgroLink - Frontend Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">AgroLink</div>
+    <div class="pdf-link"><a href="/mnt/data/agrolink.pdf" target="_blank"></a></div>
+  </div>
+
+  <main class="app-wrap">
+    <!-- ROLE SELECT -->
+    <section id="role-section" class="card">
+      <h2>Who are you?</h2>
+      <div id="role-grid" class="role-grid">
+        <button class="role-btn" data-role="farmer">Farmer</button>
+        <button class="role-btn" data-role="retailer">Retailer</button>
+        <button class="role-btn" data-role="buyer">Buyer</button>
+        <button class="role-btn" data-role="logistics">Logistics Partner</button>
+        <button class="role-btn" data-role="admin">Admin</button>
+      </div>
+      <p class="muted">Choose a role to continue. Signup is phone-based (OTP simulated).</p>
+    </section>
+
+    <!-- AUTH (SIGNUP) -->
+    <section id="signup-section" class="card hidden">
+      <div class="panel-head">
+        <h2>Sign up</h2>
+        <button class="link-btn" id="back-to-role">Change role</button>
+      </div>
+
+      <p id="selected-role" class="muted"></p>
+
+      <div class="form-grid">
+        <input id="name" placeholder="Full name" />
+        <input id="age" type="number" placeholder="Age" />
+        <input id="phone" placeholder="Phone number (login)" />
+        <input id="password" type="password" placeholder="Password" />
+        <input id="aadhar" placeholder="Aadhar number" />
+        <textarea id="address" rows="2" placeholder="Address"></textarea>
+      </div>
+
+      <div class="actions">
+        <button id="send-otp">Send OTP (simulate)</button>
+        <div id="otp-box" class="inline hidden">
+          <span class="note">Simulated OTP: <strong id="otp-display">—</strong></span>
+          <input id="otp-input" placeholder="Enter OTP" />
+          <button id="verify-otp" class="small">Verify</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="signup-btn" class="primary hidden">Complete Sign up</button>
+        <button id="goto-login" class="outline">Go to Login</button>
+      </div>
+
+      <p class="muted small">Note: OTP is simulated on front-end. For production integrate SMS gateway & secure auth.</p>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="login-section" class="card hidden">
+      <div class="panel-head">
+        <h2>Login</h2>
+        <button class="link-btn" id="back-to-role2">Change role</button>
+      </div>
+
+      <div class="form-grid">
+        <input id="login-phone" placeholder="Phone number" />
+        <input id="login-password" type="password" placeholder="Password" />
+      </div>
+
+      <div class="actions">
+        <button id="login-btn" class="primary">Login</button>
+        <button id="to-signup" class="outline small">New user? Signup</button>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="card hidden">
+      <div class="panel-head">
+        <div>
+          <h2 id="dashboard-title">Dashboard</h2>
+          <div id="user-meta" class="muted small"></div>
+        </div>
+        <div class="dashboard-actions">
+          <button id="logout-btn" class="outline">Logout</button>
+        </div>
+      </div>
+
+      <div id="dashboard-content" class="dashboard-grid">
+        <!-- dynamic content injected by app.js -->
+      </div>
+    </section>
+
+    <!-- CHAT SECTION -->
+    <section id="chat-section" class="card hidden">
+      <div class="panel-head">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div id="chat-avatar" class="avatar-lg">A</div>
+          <div>
+            <h2 id="chat-title">Chat</h2>
+            <div id="chat-meta" class="muted small"></div>
+          </div>
+        </div>
+        <div>
+          <button class="link-btn" id="chat-back">Back to Dashboard</button>
+        </div>
+      </div>
+
+      <div id="chat-thread" class="chat-thread widget" aria-live="polite"></div>
+
+      <div class="chat-controls">
+        <div class="chat-input">
+          <div class="editor-wrap">
+            <div id="editor" class="editor" contenteditable="true" placeholder="Type a message (Enter to send, Shift+Enter newline)"></div>
+          </div>
+          <button id="chat-send-btn" class="primary">Send</button>
+        </div>
+        <div class="chat-hint small muted">Open another tab to see realtime messages (BroadcastChannel).</div>
+      </div>
+    </section>
+
+    <!-- PAYMENT SECTION -->
+    <section id="payment-section" class="card hidden">
+      <div class="panel-head">
+        <div>
+          <h2 id="payment-title">Payment</h2>
+          <div id="payment-meta" class="muted small"></div>
+        </div>
+        <div>
+          <button class="link-btn" id="payment-back">Back to Dashboard</button>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3>Checkout</h3>
+        <div id="payment-details" class="small muted"></div>
+
+        <div style="margin-top:10px;">
+          <label>Payment Method</label>
+          <select id="payment-method">
+            <option value="upi">UPI (simulate)</option>
+            <option value="bank">Bank Transfer (simulate)</option>
+            <option value="card">Card (simulate)</option>
+          </select>
+        </div>
+
+        <div style="margin-top:12px;">
+          <button id="pay-now" class="primary">Pay Now</button>
+          <button id="simulate-fail" class="outline">Simulate Failed Payment</button>
+        </div>
+
+        <div id="payment-result" class="muted small" style="margin-top:12px;"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <small>AgroLink Prototype • Frontend-only demo • Data in browser storage</small>
+  </footer>
+
+  <!-- load app script -->
+  <script src="app.js"></script>
+</body>
+</html>

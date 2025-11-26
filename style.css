@@ -1,0 +1,128 @@
+:root {
+  --bg: #f6f9fb;
+  --card: #ffffff;
+  --accent: #1f9d55;
+  --accent-2: #0ea5a0;
+  --muted: #6b7280;
+  --danger: #ef4444;
+  --bubble-me: #dcfce7;
+  --bubble-them: #f8fafc;
+}
+
+:root {
+  --bg: #f6f9fb;
+  --card: #ffffff;
+  --accent: #1f9d55;
+  --muted: #6b7280;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family:Inter,Arial; background:var(--bg); color:#08131a; }
+.topbar { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:#fff; border-bottom:1px solid #eef2f3; }
+.brand { font-weight:700; font-size:18px; color:var(--accent); }
+.app-wrap { max-width:1000px; margin:22px auto; padding:0 16px; }
+.card { background:var(--card); border-radius:12px; padding:18px; margin-bottom:16px; box-shadow:0 8px 20px rgba(13,20,25,0.04); }
+
+.role-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:12px; margin-top:10px; }
+.role-btn {
+  background: linear-gradient(180deg,#edfdf6,#dff7ef); border:1px solid #d0f2e8; color:#0f6b4f; padding:14px; border-radius:10px; font-weight:700; cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.role-btn:hover { transform: translateY(-4px); box-shadow:0 10px 24px rgba(16,24,40,0.06); }
+.role-btn:active { transform: translateY(-1px); }
+
+/* rest of your CSS (forms, widgets, chat) — keep the same content you had previously */
+.form-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:10px; margin-top:12px; }
+.form-grid input, .form-grid textarea { width:100%; padding:10px; border-radius:8px; border:1px solid #e6eef0; }
+.form-grid textarea { resize:vertical; grid-column: 1 / -1; }
+button { border:0; padding:10px 12px; border-radius:8px; cursor:pointer; font-weight:600; }
+.primary { background:var(--accent); color:#fff; }
+.outline { background:#fff; border:1px solid #e6eef0; color:#334155; }
+.muted { color:var(--muted); margin-top:8px; }
+.hidden { display:none; }
+
+/* chat visuals minimal additions */
+.chat-thread { max-height:480px; overflow:auto; padding:12px; display:flex; flex-direction:column; gap:8px; }
+.avatar-lg { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; background:#0f766e; }
+.editor { min-height:44px; max-height:120px; padding:8px; border-radius:8px; border:1px solid #e6eef0; outline:none; }
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg); color: #08131a;
+  -webkit-font-smoothing:antialiased;
+}
+.topbar {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 20px; background:#fff; border-bottom:1px solid #eef2f3;
+}
+.brand { font-weight:700; font-size:18px; color:var(--accent); }
+.pdf-link a { color:#0b6b66; text-decoration:none; font-size:14px; }
+
+.app-wrap { max-width:1000px; margin:22px auto; padding:0 16px; }
+.card { background: var(--card); border-radius:12px; padding:18px; margin-bottom:16px; box-shadow: 0 8px 20px rgba(13,20,25,0.04); }
+
+.role-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:12px; margin-top:10px; }
+.role-btn {
+  background: linear-gradient(180deg, #edfdf6, #dff7ef);
+  border:1px solid #d0f2e8; color:#0f6b4f; padding:12px; border-radius:10px; font-weight:600; cursor:pointer;
+}
+.role-btn:hover { transform:translateY(-3px); box-shadow:0 8px 18px rgba(16,24,40,0.06); }
+
+.form-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-top:12px; }
+.form-grid input, .form-grid textarea { width:100%; padding:10px; border-radius:8px; border:1px solid #e6eef0; }
+.form-grid textarea { resize:vertical; grid-column: 1 / -1; }
+
+button { border:0; padding:10px 12px; border-radius:8px; cursor:pointer; font-weight:600; }
+.primary { background:var(--accent); color:#fff; }
+.outline { background:#fff; border:1px solid #e6eef0; color:#334155; }
+.link-btn { background:transparent; border:0; color:var(--accent-2); cursor:pointer; font-weight:600; }
+
+.inline { display:inline-flex; gap:8px; align-items:center; }
+.actions { margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.note { font-size:13px; color:var(--muted); }
+.muted { color:var(--muted); margin-top:8px; }
+
+.panel-head { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.dashboard-grid { margin-top:12px; display:grid; grid-template-columns: 1fr 320px; gap:12px; }
+@media (max-width:880px) { .form-grid { grid-template-columns: 1fr; } .dashboard-grid { grid-template-columns: 1fr; } }
+
+.widget {
+  background:#fbfdff; border:1px solid #eef6f5; padding:12px; border-radius:8px;
+}
+.table { width:100%; border-collapse:collapse; }
+.table th, .table td { text-align:left; padding:8px; border-bottom:1px solid #f1f5f9; font-size:14px; }
+.small { font-size:13px; color:var(--muted); }
+
+.footer { text-align:center; padding:12px; color:var(--muted); font-size:13px; margin-top:8px; }
+.hidden { display:none; }
+
+/* CHAT STYLES */
+.chat-thread {
+  max-height:480px; overflow:auto; padding:16px; border-radius:8px; background:#fff;
+  display:flex; flex-direction:column; gap:10px;
+}
+.msg-row { display:flex; gap:10px; align-items:flex-end; }
+.avatar { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; }
+.avatar-lg { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:18px; }
+.msg { max-width:72%; padding:10px 12px; border-radius:12px; box-shadow:0 6px 14px rgba(2,6,23,0.03); font-size:14px; line-height:1.35; }
+.msg.me { margin-left:auto; background:var(--bubble-me); border:1px solid #bbf7d0; }
+.msg.them { margin-right:auto; background:var(--bubble-them); border:1px solid #eef2f3; }
+.msg-meta { font-size:12px; color:var(--muted); margin-top:6px; }
+.msg .time { font-size:11px; color:#6b7280; margin-left:8px; }
+
+/* differentiate colors by phone hash (simple) */
+.avatar.color-0 { background:#06b6d4; } /* cyan */
+.avatar.color-1 { background:#7c3aed; } /* purple */
+.avatar.color-2 { background:#f97316; } /* orange */
+.avatar.color-3 { background:#0f766e; } /* teal */
+.avatar.color-4 { background:#b91c1c; } /* red */
+.avatar.color-5 { background:#065f46; } /* dark green */
+
+/* editor */
+.editor-wrap { background:#fff; border:1px solid #e6eef0; border-radius:8px; padding:8px; flex:1; }
+.editor { min-height:44px; max-height:120px; overflow:auto; outline:none; white-space:pre-wrap; }
+.chat-input { display:flex; gap:8px; margin-top:12px; align-items:center; }
+.chat-controls { margin-top:12px; }
+
+/* helper */
+.timestamp { font-size:12px; color:var(--muted); text-align:center; margin:8px 0; }
